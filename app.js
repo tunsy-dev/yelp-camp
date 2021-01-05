@@ -128,7 +128,7 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "process.env.CLOUDINARY", 
+                "https://res.cloudinary.com/tomscloudnamez/", 
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
