@@ -1,8 +1,12 @@
 if(process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
-
-
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+var $ = require("jquery")(window);
 
 const express = require('express');
 const path = require('path');
@@ -17,12 +21,10 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
-
 const userRoutes = require('./routes/user');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const { MongoStore } = require('connect-mongo');
-
 const MongoDBStore = require("connect-mongo")(session);
 
 const dbUrl =  process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
@@ -45,14 +47,12 @@ const app = express();
 app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
-
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(mongoSanitize())
 
 const secret = process.env.SECRET || 'this should be ab better secret';
-
 const store = new MongoDBStore({
     url: dbUrl, 
     secret,
@@ -62,7 +62,6 @@ const store = new MongoDBStore({
 store.on("error", function (e) {
     console.log("session store error", e)
 })
-
 
 const sessionConfig = {
     store,
@@ -81,16 +80,23 @@ app.use(session(sessionConfig));
 app.use(flash());
 app.use(helmet());
 
-
 const scriptSrcUrls = [
+    "https://kit.fontawesome.com/",
+    "https://fonts.gstatic.com/",
     "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
     "https://api.mapbox.com/",
     "https://kit.fontawesome.com/",
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net",
+   "https://ajax.googleapis.com/ajax/"
+    
 ];
 const styleSrcUrls = [
+    "https://kit.fontawesome.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
     "https://kit-free.fontawesome.com/",
     "https://stackpath.bootstrapcdn.com/",
     "https://api.mapbox.com/",
@@ -99,12 +105,16 @@ const styleSrcUrls = [
     "https://use.fontawesome.com/",
 ];
 const connectSrcUrls = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
     "https://api.mapbox.com/",
     "https://a.tiles.mapbox.com/",
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
 ];
-const fontSrcUrls = [];
+const fontSrcUrls = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
+   
+];
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -118,7 +128,7 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/tomscloudnamez/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
+                process.env.CLOUDINARY, 
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
@@ -126,11 +136,9 @@ app.use(
     })
 );
 
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
-
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.get('/fakeUser', async (req, res) => {
@@ -153,7 +161,6 @@ app.use('/campgrounds/:id/reviews', reviewRoutes)
 app.get('/', (req, res) => {
     res.render('home')
 });
-
 
 app.all('*', (req, res, next) =>{ 
     next(new ExpressError('Page Not Found', 404))

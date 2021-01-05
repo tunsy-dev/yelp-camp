@@ -3,7 +3,13 @@ const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const User = require('../models/user');
 const passport = require('passport');
-const users = require('../controllers/users')
+const users = require('../controllers/users');
+const Campground = require('../models/campground');
+const campgrounds = require('../controllers/campgrounds');
+const { random } = require('../middleware');
+
+router.route('/')
+    .get(random, catchAsync(campgrounds.landing));
 
 router.route('/register')
     .get(users.renderRegister)

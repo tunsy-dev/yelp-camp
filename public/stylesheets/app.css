@@ -1,9 +1,469 @@
-#cluster-map {
-    width: 100%;
-    height: 500px;
+body {
+  overflow-x:hidden;
+  font-family: 'Work Sans', sans-serif;
+  height: 100%;
+  width: 100vw;
+  max-width: 100%;
 }
 
-#map {
-    width:100%;
-    height:300px;
+h1 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+  font-size: auto;
 }
+
+h2 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+  font-size: 60px;
+}
+
+.heroText {
+  color: aliceblue;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+h3 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+}
+
+h4 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
+}
+
+#cluster-map {
+  width: 100vw;
+  height: 500px;
+  max-height:800px;
+  max-width: 100%;
+}
+
+
+#map {
+  width: 100vw;
+  height: 450px;
+  max-width: 100%;
+}
+
+.heading {
+  text-align: center;
+  font-size: auto;
+}
+
+.pickgradient {
+  display: inline-block;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+  /* IE6-9 */
+}
+
+
+.btn-primary-outline {
+  background-color: rgb(240, 248, 255, 0.1);
+  border-color: #ccc;
+  color: rgba(240, 248, 255, 0.9);
+}
+
+.btn-primary-outline:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+  background-color: rgb(240, 248, 255, 0.4);
+  color: rgb(240, 248, 255, 0.9);
+  border-color: #285e8e;
+  /*set the color you want here*/
+}
+
+.btn-primary-main {
+  background-color: rgb(17, 248, 255, 0.1);
+  border-color: #ccc;
+  color: rgba(5, 5, 5, 0.9);
+}
+
+.btn-primary-main:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+  background-color: rgba(17, 230, 215, 0.1);
+  color: rgba(12, 12, 12, 0.9);
+  border-color: #285e8e;
+  /*set the color you want here*/
+}
+
+
+/* photopage */
+
+
+.uploadDiv {
+  margin-top: 200px;
+  color: rgba(5, 5, 5, 0.9);
+  position: relative; 
+  height:60vh; 
+  width:auto; 
+  border: 3px solid rgba(214, 254, 255, 0.897);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadDiv:hover, .uploadDiv:focus {
+  background-color: rgba(17, 230, 215, 0.1);
+  color: rgba(12, 12, 12, 0.9);
+  border-color: #285e8e;
+}
+
+
+.PhotoPageHead .heroText h1, h4 {
+  color: #285e8e;
+  width: 100%;
+  max-width: 100%;
+}
+
+.PhotoPageHead .heroText p {
+  color: #285e8e;
+  width: 100%;
+  max-width: 100%;
+}
+
+.row>.column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Modal Content */
+
+.modal-content {
+  position: relative;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 80vw;
+  height: 80vh;
+  max-width: 1200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-content img {
+  max-width: 95%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 600px;
+}
+
+.bottomCaption {
+  color: #f2f2f2;
+  font-size: 15px;
+  position: absolute;
+  top: 97%;
+  left: 8%;
+  transform: translate(-50%, -50%);
+}
+
+
+.bottomCaption:hover, .fa-images:hover, .bottomCaption:focus .fa-images:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The Close Button */
+
+.close {
+  color: antiquewhite;
+  position: absolute;
+  top: 2%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-size: 15px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.closeIcon {
+  font-size: 20px;
+}
+
+.close:hover, .close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 98%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active, .demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
+.PhotoPageHead {
+  width:66%; height:150px; position: relative; margin:auto;
+}
+
+.heroText{
+  position: absolute; 
+  width:100%;
+  max-width: 100%;
+}
+
+#uploadPhoto{
+  float:right;
+}
+
+.allPhotosText{
+  text-align:center; margin-top:20px;
+}
+
+.imgThumb{
+  width:100%;
+  max-width: 100%;
+  height:300px;
+  object-fit:cover;
+}
+
+/* Show Page */
+.banner {
+  max-width: 100%;
+  width: 100vw;
+  height:500px; 
+  position: relative;}
+
+.heroTextMoreThan2{
+  color: white;
+  position: absolute; 
+  top: 65%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.bannerImgDiv{
+  height:500px; 
+  
+  max-width: 100%;
+   padding:0px 0px 0px 0px;
+}
+.bannerImgDiv3{
+  height:500px; padding:0px 0px 0px 0px; 
+  }
+
+.imgRow {
+  max-width: 100%;
+  width:100vw;
+}
+
+
+.bannerImg{
+  position: relative;
+  z-index: -1;
+  display: block;
+  width: 100vw;
+  max-width: 100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.stockImg{
+  color: rgba(17, 230, 215, 0.3);
+  position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+}
+
+.PhotoButton2{
+  position: absolute;
+            top: 80%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+}
+
+.heroTextSmall{
+  color: white;
+  position: absolute; 
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.PhotoButtonSmall{
+  position: absolute;
+  min-width: 160px;
+            top: 60%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+}
+
+
+.mainBody {
+  width:90vw; margin:auto;
+  max-width: 100%;
+}
+
+#reviewSection {
+  display:none;
+}
+
+#bannerSmall {
+  display:none;
+}
+
+@media only screen
+ 
+and (min-device-width: 360px)
+ 
+and (max-device-width: 667px)
+ 
+and (-webkit-min-device-pixel-ratio: 2)
+ 
+and (orientation: portrait) {
+
+.ImgHide{
+  display: none;
+}
+.ImgShow{
+  width: 100vw;
+  max-width: 100%;
+  margin-left: 10px ;
+}
+.heroTextMoreThan2{
+  color: white;
+  position: absolute; 
+  top: 65%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+
+}
+.banner {
+  height: 300px;
+}
+.bannerImgDiv {
+  height: 300px;
+  max-width: 100%;
+}
+
+.bannerImg {
+  height: 100%;
+ 
+  max-width: 100%;
+}
+
+
+}
+
+ 

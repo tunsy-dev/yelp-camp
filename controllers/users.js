@@ -1,17 +1,26 @@
 const User = require('../models/user');
+const Campground = require('../models/campground');
+
+
+module.exports.landing = async (req, res) => {
+    const campgrounds = await Campground.find({}).populate('popupText');
+    function randomIndex(campgrounds) {
+        return Math.floor(Math.random() * campgrounds.length);
+    }
+}
 
 module.exports.renderRegister = (req, res) => {
     res.render('users/register');
 }
 
-module.exports.register = async(req, res) => {
+module.exports.register = async (req, res) => {
     try {
-        const { email, username, password} = req.body;
+        const { email, username, password } = req.body;
         const user = new User({ email, username });
         const registeredUser = await User.register(user, password);
         req.login(registeredUser, err => {
-            if(err) return next(err);
-            req.flash('success','welcome to yelp camp!');
+            if (err) return next(err);
+            req.flash('success', 'welcome to yelp camp!');
             res.redirect('/campgrounds');
         })
     } catch (e) {
@@ -26,7 +35,7 @@ module.exports.renderLogin = (req, res) => {
 
 module.exports.login = (req, res) => {
     req.flash('success', 'welcome back!');
-    const redirectUrl = req.session.returnTo || '/campgrounds'; 
+    const redirectUrl = req.session.returnTo || '/campgrounds';
     delete req.session.returnTo;
     res.redirect(redirectUrl);
 }

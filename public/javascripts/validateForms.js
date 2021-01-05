@@ -18,3 +18,34 @@
         }, false)
       })
   })()
+  
+
+  
+ 
+
+  function showReview() {
+    var x = document.getElementById("reviewSection");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+
+
+  // Random Campground
+  
+  if (window.location.pathname=='/') {
+    window.onload = reload;
+  if(performance.navigation.type == 2){
+    location.reload(true);
+  }
+}
+
+ function reload() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+    location.reload(true);
+  }
+  }
