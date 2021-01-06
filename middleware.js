@@ -57,7 +57,7 @@ module.exports.paginate = async (req, res) => {
     if (req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         Campground.find({ $or: [{ title: regex, }, { location: regex }, { "author.username": regex }] }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allCampgrounds) {
-            Campground.countDocuments({ title: regex }).exec(function (err, count) {
+            Campground.count({ title: regex }).exec(function (err, count) {
                 if (err) {
                     console.log(err);
                     res.redirect("back");
@@ -76,7 +76,7 @@ module.exports.paginate = async (req, res) => {
             });
         });
     } else {
-        const campgrounds = await Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allCampgrounds) {
+       await Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allCampgrounds) {
             Campground.countDocuments().exec(function (err, count) {
                 if (err) {
                     console.log(err);

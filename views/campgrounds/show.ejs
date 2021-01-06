@@ -22,7 +22,8 @@
 
           <div class="col-6 pickgradient bannerImgDiv ImgShow"><img
               src="<%= campground.images[0].url %>" class="w-100 bannerImg"  alt=""
-              ></div>
+              > <a class="btn btn-primary-outline btn-lg PhotoButtonHide" href="/campgrounds/<%= campground._id %>/photos">
+                See <%= campground.images.length %> photos </a></div>
           <div class="col-3 pickgradient bannerImgDiv ImgHide"><img
               src="<%= campground.images[1].url %>" class="w-100 bannerImg"  alt=""
               ></div>
@@ -52,7 +53,7 @@
                 src="<%= campground.images[0].url %>" class="w-100 bannerImg" id="imgShow" alt="" ></div>
             <div class="col-4 pickgradient bannerImgDiv" ><img
                 src="<%= campground.images[1].url %>" class="w-100 bannerImg" id="imgShow" alt="" >
-                <a class="btn btn-primary-outline btn-lg PhotoButton2" href="/campgrounds/<%= campground._id %>/photos">
+                <a class="btn btn-primary-outline btn-lg PhotoButton" href="/campgrounds/<%= campground._id %>/photos">
                     See <%= campground.images.length %> photos </a>
                   </div>
           </div>
@@ -73,7 +74,7 @@
               <div class="pickgradient bannerImgDiv">
                 <% if(campground.images.length> 0) {%>
                   <img src="<%= campground.images[0].url %>" class="w-100 bannerImg" alt="">
-                    <a class="btn btn-primary-outline btn-lg PhotoButton2" href="/campgrounds/<%= campground._id %>/photos">
+                    <a class="btn btn-primary-outline btn-lg PhotoButton" href="/campgrounds/<%= campground._id %>/photos">
                         See <%= campground.images.length %> photos </a>
               
               <% }else{ %>

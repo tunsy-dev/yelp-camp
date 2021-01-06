@@ -76,6 +76,7 @@ h4 {
   background-color: rgb(240, 248, 255, 0.1);
   border-color: #ccc;
   color: rgba(240, 248, 255, 0.9);
+  font-size: 14px;
 }
 
 .btn-primary-outline:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
@@ -89,6 +90,7 @@ h4 {
   background-color: rgb(17, 248, 255, 0.1);
   border-color: #ccc;
   color: rgba(5, 5, 5, 0.9);
+  font-size: 14px;
 }
 
 .btn-primary-main:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
@@ -382,7 +384,7 @@ img.hover-shadow {
             -ms-transform: translate(-50%, -50%);
 }
 
-.PhotoButton2{
+.PhotoButton{
   position: absolute;
             top: 80%;
             left: 80%;
@@ -399,14 +401,15 @@ img.hover-shadow {
   -ms-transform: translate(-50%, -50%);
 }
 
-.PhotoButtonSmall{
+.PhotoButtonHide{
+  display: none;
   position: absolute;
-  min-width: 160px;
             top: 60%;
             left: 80%;
             transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
 }
+
 
 
 .mainBody {
@@ -424,7 +427,7 @@ img.hover-shadow {
 
 @media only screen
  
-and (min-device-width: 360px)
+and (min-device-width: 280px)
  
 and (max-device-width: 667px)
  
@@ -441,9 +444,10 @@ and (orientation: portrait) {
   margin-left: 10px ;
 }
 .heroTextMoreThan2{
+  font-size: 12px;
   color: white;
   position: absolute; 
-  top: 65%;
+  top: 35%;
   left: 40%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -459,9 +463,17 @@ and (orientation: portrait) {
 
 .bannerImg {
   height: 100%;
- 
   max-width: 100%;
 }
+.PhotoButtonHide{
+  display:block;
+  position: absolute;
+            top: 80%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+}
+
 
 
 }

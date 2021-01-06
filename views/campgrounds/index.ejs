@@ -4,7 +4,10 @@
 
 <div id="container" class="container">
     <div class="col-md-6 mx-auto mt-3">
-        <h2 class="heading">All Campgrounds</h2>
+        <h2 class="heading">All Campgrounds </h2>
+        
+
+
     </div>
         <div class="col-sm-6 offset-sm-3 text-center">
             <form action="/campgrounds" method="GET" class="form-inline">
@@ -27,7 +30,16 @@
                     <h4>
                         <%= noMatch %>
                     </h4>
-                    <% } %>
+                    <% } else if (search ==false) { %>
+                            <h4></h4>
+                            <% } else {%>  
+                   <h4>Displaying search results for <%= search %> </h4>     
+                   <% } %> 
+                   <% if(noMatch !==null) { %>
+                    <h4></h4>
+                    <% } else {%>  
+                                <h4 class="heading">Page Number <%= Number(current) %> of <%= pages + 1 %></h4>  
+                        <% } %> 
             </div>
         </div>
 <!-- Campgrounds Display -->
