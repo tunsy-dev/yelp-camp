@@ -7,7 +7,7 @@ Yelp camp is an application for a fictional start up that allows users to add ca
 
 The application is built using a MongoDB, Express, Node.js stack. Utilizing RESTful architecture. 
 
-A working demonstration of the application can be found [here](https://dry-anchorage-86124.herokuapp.com/)
+A working demonstration of the application can be found [here](https://dry-anchorage-86124.herokuapp.com/).
 
 
 #### Additional features added:
