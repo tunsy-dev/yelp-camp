@@ -1,11 +1,11 @@
-# yelp-camp
+# Yelp Camp
 
 #### Description: 
 A Full stack web application developed as part of the Web Development bootcamp by Colt Steele.
 I have then developed upon this by adding more features and functionality to the application.
 Yelp camp is an application for a fictional start up that allows users to add campgrounds that can then be reviewed and rated by other users. 
 
-The application is built using a MongoDB, Express, Node.js stack. Utilizing RESTful architecture. 
+The application is built using a Node.js, Express and MongoDB stack. Utilizing RESTful architecture. 
 
 A working demonstration of the application can be found [here](https://dry-anchorage-86124.herokuapp.com/).
 
