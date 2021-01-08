@@ -1,21 +1,117 @@
 body {
   overflow-x:hidden;
-  font-family: 'Work Sans', sans-serif;
+ color: #757280;
   height: 100%;
   width: 100vw;
   max-width: 100%;
 }
 
+#AllcampgroundsContainer {
+  margin-top: 50px;
+}
+
+.map-container{
+  width: 100vw;
+  height: 80vh;
+  position: ;
+
+  
+}
+.map-container-index{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+}
+
+
+#cluster-map {
+  width: 100%;
+  height: 100%;
+  max-height:100%;
+  max-width: 100%;
+
+ 
+
+}
+
+#map {
+  width: 100vw;
+  height: 450px;
+  max-width: 100%;
+}
+
+.listing-group {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  position: absolute;
+  top: 20%;
+  left: 88%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 3px;
+  max-width: 20%;
+  color: #fff;
+  }
+   
+  .listing-group input[type='checkbox']:first-child + label {
+  border-radius: 3px 3px 0 0;
+  }
+   
+  .listing-group label:last-child {
+  border-radius: 0 0 3px 3px;
+  border: none;
+  }
+   
+  .listing-group input[type='checkbox'] {
+  display: none;
+  }
+   
+  .listing-group input[type='checkbox'] + label {
+  background-color: #3386c0;
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  }
+   
+  .listing-group input[type='checkbox'] + label {
+  background-color: #3386c0;
+  text-transform: capitalize;
+  }
+   
+  .listing-group input[type='checkbox'] + label:hover,
+  .listing-group input[type='checkbox']:checked + label {
+  background-color: #4ea0da;
+  }
+   
+  .listing-group input[type='checkbox']:checked + label:before {
+  content: '✔';
+  margin-right: 5px;
+  }
+
+/* navbar */
+#bar {
+  font-size: 13px;
+  width:90vw;
+  margin:auto;
+}
+
+.navbar-toggler-icon {
+  font-size: 13px;
+}
+/* navbar */
+
 h1 {
   font-family: 'Work Sans', sans-serif;
   font-weight: 900;
   font-size: auto;
+  color: #2B273D;
 }
 
 h2 {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 900;
-  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-size: auto;
 }
 
 .heroText {
@@ -25,32 +121,34 @@ h2 {
 }
 
 h3 {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 900;
+  font-family: 'Roboto', sans-serif;
+  color: #2B273D;
+}
+
+/* card font  */
+
+#card-title{
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#smallText{font-size: 13px;}
+
+.card-text, p, .list-group-item, .card-footer{
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
 }
 
 h4 {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 900;
-}
-
-#cluster-map {
-  width: 100vw;
-  height: 500px;
-  max-height:800px;
-  max-width: 100%;
-}
-
-
-#map {
-  width: 100vw;
-  height: 450px;
-  max-width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color:#2B273D
 }
 
 .heading {
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   font-size: auto;
+  color: #2B273D;
 }
 
 .pickgradient {
@@ -71,6 +169,24 @@ h4 {
   /* IE6-9 */
 }
 
+.slender {
+  font-size: 13px;
+}
+
+.btn-primary-index {
+  background-color:  #51BBD6;
+  border-color: #51bbd6b7;
+  color: rgba(255, 251, 251, 0.9);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn-primary-index:hover, .btn-primary-index:focus, .btn-primary-index:active, .btn-primary-index.active, .open>.dropdown-toggle.btn-primary-index {
+  background-color:#51bbd6b7;
+  color: rgba(255, 251, 251, 0.9);
+  border-color: #285e8e;
+  /*set the color you want here*/
+}
 
 .btn-primary-outline {
   background-color: rgb(240, 248, 255, 0.1);
@@ -80,32 +196,15 @@ h4 {
 }
 
 .btn-primary-outline:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-  background-color: rgb(240, 248, 255, 0.4);
+  background-color:#51bbd6b7;
   color: rgb(240, 248, 255, 0.9);
   border-color: #285e8e;
-  /*set the color you want here*/
-}
-
-.btn-primary-main {
-  background-color: rgb(17, 248, 255, 0.1);
-  border-color: #ccc;
-  color: rgba(5, 5, 5, 0.9);
-  font-size: 14px;
-}
-
-.btn-primary-main:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-  background-color: rgba(17, 230, 215, 0.1);
-  color: rgba(12, 12, 12, 0.9);
-  border-color: #285e8e;
-  /*set the color you want here*/
 }
 
 
 /* photopage */
 
-
 .uploadDiv {
-  margin-top: 200px;
   color: rgba(5, 5, 5, 0.9);
   position: relative; 
   height:60vh; 
@@ -122,14 +221,13 @@ h4 {
   border-color: #285e8e;
 }
 
-
-.PhotoPageHead .heroText h1, h4 {
+.photoPageHead .heroText .h1 .h4 {
   color: #285e8e;
   width: 100%;
   max-width: 100%;
 }
 
-.PhotoPageHead .heroText p {
+.photoPageHead .heroText p {
   color: #285e8e;
   width: 100%;
   max-width: 100%;
@@ -187,7 +285,7 @@ h4 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-height: 600px;
+  max-height: 85%;
 }
 
 .bottomCaption {
@@ -199,7 +297,6 @@ h4 {
   transform: translate(-50%, -50%);
 }
 
-
 .bottomCaption:hover, .fa-images:hover, .bottomCaption:focus .fa-images:focus {
   color: #999;
   text-decoration: none;
@@ -209,14 +306,13 @@ h4 {
 /* The Close Button */
 
 .close {
-  color: antiquewhite;
+  color: #f2f2f2;
   position: absolute;
-  top: 2%;
+  top: 4%;
   left: 90%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   font-size: 15px;
-  font-weight: bold;
   z-index: 10;
 }
 
@@ -304,12 +400,8 @@ img.hover-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-
-
-
-.PhotoPageHead {
-  width:66%; height:150px; position: relative; margin:auto;
+.photoPageHead {
+  width:80%; height:150px;  margin:auto; margin-top: 100px; 
 }
 
 .heroText{
@@ -323,7 +415,7 @@ img.hover-shadow {
 }
 
 .allPhotosText{
-  text-align:center; margin-top:20px;
+  text-align:center; 
 }
 
 .imgThumb{
@@ -337,7 +429,7 @@ img.hover-shadow {
 .banner {
   max-width: 100%;
   width: 100vw;
-  height:500px; 
+  height:450px; 
   position: relative;}
 
 .heroTextMoreThan2{
@@ -350,13 +442,13 @@ img.hover-shadow {
 }
 
 .bannerImgDiv{
-  height:500px; 
-  
+  height:450px; 
   max-width: 100%;
-   padding:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
 }
 .bannerImgDiv3{
-  height:500px; padding:0px 0px 0px 0px; 
+  height:450px; padding:0px 0px 0px 0px; 
+  max-width: 100%;
   }
 
 .imgRow {
@@ -427,7 +519,7 @@ img.hover-shadow {
 
 @media only screen
  
-and (min-device-width: 280px)
+and (min-device-width: 180px)
  
 and (max-device-width: 667px)
  
@@ -447,8 +539,8 @@ and (orientation: portrait) {
   font-size: 12px;
   color: white;
   position: absolute; 
-  top: 35%;
-  left: 40%;
+  top: 50%;
+  left: 35%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 

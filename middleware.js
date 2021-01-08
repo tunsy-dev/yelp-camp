@@ -110,7 +110,7 @@ module.exports.random = async (req, res) => {
         var removedItem = campgrounds.splice(randomIndex(campgrounds), 1);
     }
 
-    res.render('home', { campgrounds, removedItem })
+    res.render('landing', { campgrounds, removedItem })
 }
 
 // width of pafe

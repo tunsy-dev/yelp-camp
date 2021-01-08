@@ -2,12 +2,7 @@ const User = require('../models/user');
 const Campground = require('../models/campground');
 
 
-module.exports.landing = async (req, res) => {
-    const campgrounds = await Campground.find({}).populate('popupText');
-    function randomIndex(campgrounds) {
-        return Math.floor(Math.random() * campgrounds.length);
-    }
-}
+
 
 module.exports.renderRegister = (req, res) => {
     res.render('users/register');

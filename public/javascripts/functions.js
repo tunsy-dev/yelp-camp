@@ -21,14 +21,12 @@
   
 
   
- 
-
   function showReview() {
     var x = document.getElementById("reviewSection");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
+    if (x.style.display === "block") {
       x.style.display = "none";
+    } else {
+      x.style.display = "block";
     }
   }
 
@@ -36,16 +34,17 @@
 
   // Random Campground
   
-  if (window.location.pathname=='/') {
+  if (window.location.pathname ==='/') {
+
     window.onload = reload;
-  if(performance.navigation.type == 2){
-    location.reload(true);
+  if(performanceNavigation.type == 2){
+    location.reload();
   }
 }
 
  function reload() {
     if(!window.location.hash) {
         window.location = window.location + '#loaded';
-    location.reload(true);
+    location.reload();
   }
   }

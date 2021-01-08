@@ -1,0 +1,56 @@
+<% layout('/layouts/boilerplate')%>
+
+
+<!-- SEARCH BAR START -->
+<div class="homePage" id="landing-header">
+    <div class="map-container"><div id="cluster-map"></div>
+    <nav id="listing-group" class="listing-group">
+        <input type="checkbox" id="scrollZoom" />
+        <label for="scrollZoom">Enable Scroll zoom</label>
+    </nav>    
+    </div>
+</div>
+
+    <h2 class="heading mt-1">Search Map</h2>
+    <p class="text-center mb-0">Click on clusters to explore individual campgrounds</p>
+    <br>
+    <div id="container" class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 text-center">
+                <form action="/campgrounds" method="GET"   class="form-inline">
+                    <div class="input-group flex-fill">
+                        <input type="text" name="search" placeholder="Campground search....." class="form-control input-sm slender">
+                            <input type="submit" value="Search" class="btn btn-primary-index slender">
+                    </div>
+                </form>
+                <br>
+                <a href="/campgrounds"  class="btn btn-primary-index col-6 col-md-7 mx-auto slender">View All Campground</a>
+                <br>
+                <br>
+            
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const campgrounds = {features: <%- JSON.stringify(campgrounds) %>};
+</script>
+
+<script src="/javascripts/clusterMap.js"></script>
+
+
+

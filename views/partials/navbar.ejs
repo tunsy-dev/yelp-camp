@@ -1,15 +1,25 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid" style="width:90vw; margin:auto;">
-    <a class="navbar-brand" href="#">YelpCamp</a>
+<nav class="navbar  fixed-top navbar-expand-lg navbar-dark bg-dark pb-3">
+  <div class="container-fluid" id="bar">
+    <a class="navbar-brand mr-5" href="/">YelpCamp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="width:70vw; margin:auto;">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" ">
       <div class="navbar-nav">
-        <a class="nav-link active" href="/">Home</a>
+        <form action="/campgrounds" method="GET" class="form-inline mr-3">
+          <div class="input-group flex-fill">
+            <input type="text" name="search" placeholder="Campground search....." class="form-control input-sm slender">
+                <input type="submit" value="Search" class="btn btn-primary-index slender">
+            
+        </div>
+          
+      </form>
+        <a class="nav-link" active" href="/">Home</a>
         <a class="nav-link" href="/campgrounds">Campgrounds</a>
         <a class="nav-link" href="/campgrounds/new">New Campgrounds</a>
+        <a class="nav-link" href="/campgrounds/map">Search by Map</a>
+        
       </div>
       <div class="navbar-nav ml-auto">
         <% if(!currentUser) {%>

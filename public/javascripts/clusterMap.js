@@ -3,9 +3,44 @@ const map = new mapboxgl.Map({
 container: 'cluster-map',
 style: 'mapbox://styles/mapbox/light-v10',
 // center: [-3.8360, 53.0711], UK
-center: [ -0.6964, 52.2939], 
+center: [ 2.6964, 52.2939], 
 zoom: 5.5
 });
+
+map.on('load', function() {
+    map.addSource("myImageSource", {
+        "type": "image",
+        "url": "https://res.cloudinary.com/tomscloudnamez/image/upload/v1609974328/YelpCamp/campsite3_rx4ovt.jpg",
+        "coordinates": [
+            [-80.425, 46.437],
+            [-71.516, 46.437],
+            [-71.516, 37.936],
+            [-80.425, 37.936]
+        ]
+    });
+
+    map.addLayer({
+        "id": "overlay",
+        "source": "myImageSource",
+        "type": "raster",
+        "paint": {
+        "raster-opacity": 0.85
+        }
+    });
+});
+
+map.scrollZoom.disable();
+document
+.getElementById('listing-group')
+.addEventListener('change', function (e) {
+var handler = e.target.id;
+if (e.target.checked) {
+map[handler].enable();
+} else {
+map[handler].disable();
+}
+});
+
 map.addControl(new mapboxgl.NavigationControl());
  
 map.on('load', function () {
@@ -78,7 +113,8 @@ paint: {
 'circle-stroke-color': '#fff'
 }
 });
- 
+
+
 // inspect a cluster on click
 map.on('click', 'clusters', function (e) {
 const features = map.queryRenderedFeatures(e.point, {

@@ -9,6 +9,11 @@ module.exports.index = async (req, res) => {
     res.render('campgrounds/index', { campgrounds })
 }
 
+module.exports.map = async (req, res) => {
+    const campgrounds = await Campground.find({}).populate('popupText');
+    res.render('campgrounds/map', { campgrounds })
+}
+
 module.exports.renderPhotos = async (req, res,) => {
     const campground = await Campground.findById(req.params.id).populate({
         path: 'reviews',

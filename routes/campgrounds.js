@@ -8,12 +8,17 @@ const { isLoggedIn, isAuthor, validateCampground, paginate } = require('../middl
 const multer  = require('multer');
 const { storage } = require('../cloudinary');
 const upload = multer({ storage });
+const { random } = require('../middleware');
 
 
 router.route('/')  
     .get(paginate, catchAsync(campgrounds.index))
     .post(isLoggedIn, upload.array('image'), validateCampground, catchAsync(campgrounds.createCampground));
-  
+
+router.route('/map')  
+    .get( catchAsync(campgrounds.map))
+    .post(isLoggedIn, upload.array('image'), validateCampground, catchAsync(campgrounds.createCampground));
+      
 router.get('/new', isLoggedIn, campgrounds.renderNewForm)
 
 router.get('/:id/photos', catchAsync(campgrounds.renderPhotos))

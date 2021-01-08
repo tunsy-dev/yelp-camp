@@ -2,12 +2,11 @@
     <link rel="stylesheet" href="/stylesheets/stars.css">
     <div>
         <%if(campground.images.length>= 1) {%>
-            <div class="PhotoPageHead">
-                <div class="heroText">
-                    <h1 class="card-title mt-4">Photos for <%= campground.title %>
-                    </h1>
+            <div class="photoPageHead">
+                <div>
+                    <h2 class="card-title">Photos for <%= campground.title %></h2>
                     <a href="/campgrounds/<%= campground._id %>" class="">Back to <%= campground.title %></a>
-                    <a id="uploadPhoto" class="btn btn-primary-main btn-lg" href="/campgrounds/<%=campground._id%>/edit"
+                    <a id="uploadPhoto" class="btn btn-primary-index btn-lg" href="/campgrounds/<%=campground._id%>/edit"
                         >Upload Photo</a>
                     <p>
                         <em> Number of Photos: <strong><%= campground.images.length %></strong></em>
@@ -15,15 +14,14 @@
                 </div>
             </div>
             <% } else {%>
-                <div class="PhotoPageHead">
-                    <div class="heroText mb-4">
-                        <h1 class="card-title mt-4 ">Photos for <%= campground.title %>
-                        </h1>
-                        <h4>No Photos Uploaded</h4>
+                <div class="photoPageHead">
+                    <div>
+                        <h2 class="card-title">Photos for <%= campground.title %>
+                        </h2>
+                        <h5>No Photos Uploaded</h5>
                         <a href="/campgrounds/<%= campground._id %>" class="">Back to <%= campground.title %></a>
-                        
                         <%if(campground.images.length>= 1) {%>
-                        <a id="uploadPhoto" class="btn btn-primary-main btn-lg " href="/campgrounds/<%= campground._id %>/edit"
+                        <a id="uploadPhoto" class="btn btn-primary-index btn-lg " href="/campgrounds/<%= campground._id %>/edit"
                             >Upload Photo</a>
                             <% }else{ %> 
                                 <% } %> 
@@ -39,17 +37,14 @@
    
 
     <div class="row justify-content-center">
-        <div class="mt-5 col-md-10">
+        <div class="col-md-10">
 
             <%if(campground.images.length>= 1) {%>
                 <h6 class="allPhotosText">All Photos</h6>
                 <% }else{ %> 
                     <a href="/campgrounds/<%= campground._id %>/edit">
-                    <div class=" uploadDiv container mt-5">
-                       
-                  <h4  class="btn  btn-lg"
-                        >Upload Photos</h4>
-                    
+                    <div class=" uploadDiv container ">
+                  <h4 class="btn  btn-lg">Upload Photos</h4>
                     </div>
                 </a>
             <% } %> 
@@ -84,14 +79,18 @@
                             <%= campground.title %>
                         </p>
                     </div>
-                    <div class="bottomCaption cursor" onclick="closeModal()"><i class="far fa-images"></i> Browse all
+                    <div class="bottomCaption cursor" onclick="closeModal()"> Browse all
                     </div>
         </div>
+
     </div>
+<footer>
+    <a href="/campgrounds">All Campgrounds</a>
+</footer>
 
 <script>
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-    const campground = <% - JSON.stringify(campground) %>;
+    const campground = '<%- JSON.stringify(campground) %>';
  </script>
 
 <script>
@@ -117,23 +116,15 @@
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
         var captionText = document.getElementById("caption");
         if (n > slides.length) { slideIndex = 1 }
         if (n < 1) { slideIndex = slides.length }
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
+       
         slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        captionText.innerHTML = dots[slideIndex - 1].alt;
         }
 </script>
 
 
-<footer>
-    <a href="/campgrounds">All Campgrounds</a>
-</footer>
