@@ -25,6 +25,8 @@ A working demonstration of the application can be found [here](https://dry-ancho
 #### Features to be added:  
 •	Map overlay to specify click to zoom on map.
 
+•	Enable sorting of the campgrounds by rating.
+
 •	Rating of campground is currently generated through a function I wrote in the seeds file when seeding the database. This feature needs to be added still so that the rating comes from the mean of the reviews. 
 
 •	User Profile Page.
